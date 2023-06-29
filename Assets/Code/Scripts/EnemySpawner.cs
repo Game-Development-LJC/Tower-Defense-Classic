@@ -14,8 +14,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 5;
 
-    [SerializeField] private float enemiesPerSecond = 0.5f;
-    [SerializeField] private float timeBetweenWaves = 5f;
+    [SerializeField] private float enemiesPerSecond = 0.2f;
+    [SerializeField] private float timeBetweenWaves = 0f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
 
     [Header("Events")]
