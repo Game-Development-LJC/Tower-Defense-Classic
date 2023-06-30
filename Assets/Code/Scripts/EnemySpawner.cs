@@ -26,7 +26,6 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
-    private int health = 2;
 
     private void Awake()
     {

@@ -9,25 +9,8 @@ public class EnemyHealth : MonoBehaviour
 
 {
 
-    public Slider slider;
     public int maxHealth = 5;
     public int currentHealth;
-    private float timeSinceHit;
-
-
-    public void SetMaxHealth(int health)
-    {
-        slider.maxValue = health;
-        slider.value = health;
-
-    }
-
-    public void SetHealth(int health)
-    {
-        slider.value = health;
-    }
-
-    
 
     public HealthBar healthBar;
 
@@ -62,5 +45,15 @@ public class EnemyHealth : MonoBehaviour
             healthBar.SetHealth(currentHealth);
         }
         
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            TakeDamage(1);
+            healthBar.SetHealth(currentHealth);
+        }
+
     }
 }
