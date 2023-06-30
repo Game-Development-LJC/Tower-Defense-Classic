@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    private Transform target;
     public float speed = 5f;
     private Vector2 direction;
     [SerializeField] private int dmg = 2;
@@ -17,8 +18,22 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        // Move the projectile in the specified direction
-        transform.Translate(direction * speed * Time.deltaTime);
+        // create a bullet script without a impact effect
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        // create a bullet script without a impact effect
+        Vector3 dir = target.position - transform.position;
+        float distanceThisFrame = speed * Time.deltaTime;
+        
+        if (dir.magnitude <= distanceThisFrame)
+        {
+            return;
+        }
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(target);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -26,5 +41,10 @@ public class Projectile : MonoBehaviour
         collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
         Debug.Log("collision");
         Destroy(gameObject);
+    }
+
+    public void Seek(Transform _target)
+    {
+        target = _target;
     }
 }
