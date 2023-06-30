@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
@@ -32,9 +33,9 @@ public class Portal : MonoBehaviour
         currentHealth--;
         healthBar.SetHealth(currentHealth);
 
-        /*if(currentHealth == 0)
+        if (currentHealth == 0)
         {
-            die;
-        }*/
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }
