@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 28523589}
   - component: {fileID: 28523590}
   - component: {fileID: 28523591}
-  - component: {fileID: 28523593}
   - component: {fileID: 28523594}
   m_Layer: 0
   m_Name: Portal
@@ -226,18 +225,6 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 5
   healthBar: {fileID: 68612562}
---- !u!114 &28523593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 28523588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca1d8233323b62e4aa80953ceb0b9063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &28523594
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3514,7 +3501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCat5:
-  - {fileID: 5721011864989018878, guid: 50375ad83745e2142ab68a49d0be48e2, type: 3}
+  - {fileID: 2525324689044288672, guid: a2af5d0cdbb97924cb6e1afed0ff9fd4, type: 3}
   Healthbar: []
   baseEnemies: 8
   enemiesPerSecond: 0.5
