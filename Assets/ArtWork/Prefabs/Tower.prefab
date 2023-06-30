@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549ab8896cc8fc54ebd8174133d096ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 2394654441905808048, guid: 9526dda8d48d34b49bc98cf2e15f3a27, type: 3}
-  targetObject: {fileID: 3664347284135026205, guid: a2af5d0cdbb97924cb6e1afed0ff9fd4, type: 3}
-  fireRate: 1
+  range: 15
+  fireRate: 3
+  enemyTag: enemyTag
+  turnSpeed: 10
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
