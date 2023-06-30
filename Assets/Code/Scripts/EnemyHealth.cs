@@ -42,12 +42,12 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceHit += Time.deltaTime;
-        if (timeSinceHit >= 1f)
-        {
-            TakeDamage(1);
-            timeSinceHit = 0f;
-        }
+        //timeSinceHit += Time.deltaTime;
+        //if (timeSinceHit >= 1f)
+        //{
+        //    TakeDamage(1);
+        //    timeSinceHit = 0f;
+        //}
            
     }
 
