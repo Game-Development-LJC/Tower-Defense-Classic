@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/EnemyPortalScene.unity
     guid: 7ff55356161fb5d43b2d64f8b247ed4c
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 3e402edb0a84da543973fb1c45787efc
   - enabled: 0
     path: Assets/Scenes/World+Enemy.unity
     guid: 768a0db6573fb5d41b4418363ab5acbe
   - enabled: 1
     path: Assets/Scenes/TDC.unity
     guid: fd9d207856c24254ca65326d99af0fb1
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 3e402edb0a84da543973fb1c45787efc
   m_configObjects: {}
