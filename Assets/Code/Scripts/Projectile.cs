@@ -7,7 +7,6 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 5f;
     private Vector2 direction;
-    [SerializeField] private int dmg = 2;
 
     // Set the direction for the projectile to move
     public void SetDirection(Vector2 dir)
@@ -23,8 +22,11 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(dmg);
-        Debug.Log("collision");
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("collision");
+            Destroy(gameObject);
+        }
+
     }
 }
