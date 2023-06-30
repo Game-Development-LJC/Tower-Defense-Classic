@@ -18,22 +18,23 @@ public class Portal : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            TakeDamage(1);
+            TakeDamage();
+            Destroy(other.gameObject);
         }
+    }
+
+    void TakeDamage()
+    {
+        currentHealth--;
+        healthBar.SetHealth(currentHealth);
+
+        /*if(currentHealth == 0)
+        {
+            die;
+        }*/
     }
 }
