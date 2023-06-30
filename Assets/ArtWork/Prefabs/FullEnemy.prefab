@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 456171062265626001}
   - component: {fileID: 8154452454564508938}
   - component: {fileID: 3551450499111299607}
+  - component: {fileID: -2367426396662871280}
   m_Layer: 6
   m_Name: FullEnemy
   m_TagString: Untagged
@@ -138,7 +139,7 @@ Transform:
   m_Children:
   - {fileID: 1572382846502540730}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6641150125366355679
 SpriteRenderer:
@@ -278,6 +279,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 456171062265626001}
   moveSpeed: 2
+--- !u!114 &-2367426396662871280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525324689044288672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531398f6b181127459924a8dc163505d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 8124565990213228301}
+  maxHealth: 5
+  currentHealth: 0
+  healthBar: {fileID: 345954365978779602}
 --- !u!1 &2917451255022200495
 GameObject:
   m_ObjectHideFlags: 0

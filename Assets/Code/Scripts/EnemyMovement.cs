@@ -12,6 +12,9 @@ public class EnemyMovement : MonoBehaviour
 
     private Transform target;
     private int pathIndex = 0;
+
+
+   
     // Start is called before the first frame update
     private void Start()
     {
@@ -19,12 +22,14 @@ public class EnemyMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    public void Update()
     {
+        
+
         if (Vector2.Distance(target.position, transform.position) <= 0.1f)
         {
             pathIndex++;
-
+            
             if (pathIndex == GameManager.main.path.Length)
             {
                 EnemySpawner.onEnemyDestroy.Invoke();
@@ -35,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 target = GameManager.main.path[pathIndex];
             }
+            
         }
 
     }
