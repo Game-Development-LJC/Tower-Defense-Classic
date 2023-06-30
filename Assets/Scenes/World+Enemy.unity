@@ -553,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3664347284135026205, guid: a2af5d0cdbb97924cb6e1afed0ff9fd4, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3664347284135026205, guid: a2af5d0cdbb97924cb6e1afed0ff9fd4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4243,7 +4243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 2.97
   fireRate: 0.5
-  enemyTag: enemyTag
+  enemyTag: Enemy
   turnSpeed: 10
   bulletPrefab: {fileID: 2404570671692131483, guid: 9526dda8d48d34b49bc98cf2e15f3a27, type: 3}
   firePoint: {fileID: 2106504734}
