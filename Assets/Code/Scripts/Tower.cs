@@ -4,41 +4,80 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public GameObject projectilePrefab;
-    public Transform targetObject;
-    
+    // create a turret script
+    private Transform target;
+    private EnemyMovement targetEnemy;
+    public float range = 15f;
     public float fireRate = 1f;
+    private float fireCountdown = 0f;
+    public string enemyTag = "enemyTag";
+    public float turnSpeed = 10f;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
     
-    private float nextFireTime;
-
-    public void ShootProjectile()
+    void Start()
     {
-        if (targetObject != null)
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+    }
+    
+    void UpdateTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+
+        foreach (GameObject enemy in enemies)
         {
-            // Calculate direction towards the target object
-            Vector2 direction = (targetObject.position - transform.position).normalized;
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
 
-            // Instantiate the projectile
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-
-            // Set the direction for the projectile to move towards the target object
-            Projectile projectileComponent = projectile.GetComponent<Projectile>();
-            if (projectileComponent != null)
+            if (distanceToEnemy < shortestDistance)
             {
-                projectileComponent.SetDirection(direction);
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
             }
         }
-    }
 
-    // Example usage: Call this function from another script or event to trigger the tower to shoot
+        if (nearestEnemy != null && shortestDistance <= range)
+        {
+            target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<EnemyMovement>();
+        }
+        else
+        {
+            target = null;
+        }
+    }
+    
     void Update()
     {
-        // Check if enough time has passed to fire another projectile
-        if (Time.time >= nextFireTime)
+        if (target == null)
         {
-            // Fire projectile and set the next allowed fire time
-            ShootProjectile();
-            nextFireTime = Time.time + 1f / fireRate;
+            return;
         }
+
+        if (fireCountdown <= 0f)
+        {
+            Shoot();
+            fireCountdown = 1f / fireRate;
+        }
+        fireCountdown -= Time.deltaTime;
+    }
+    
+    void Shoot()
+    {
+        
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Projectile projectile = bulletGO.GetComponent<Projectile>();
+        
+        if (projectile != null)
+        {
+            projectile.Seek(target);
+        }
+    }
+    
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
